@@ -26,42 +26,20 @@ public class EmployeeController {
        public List<Employee> getAllemployees() {
            return employeeservice.getAllEmployees();
         }
-//    @GetMapping
-//    public ResponseEntity<List<Employee>> getAllEmployee() {
-//        List<Employee> employee = employeeservice.getAllEmployees();
-//        return new ResponseEntity<>(employee, HttpStatus.OK);
-//    }
+
 
     @GetMapping("/find/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Employee getEmployeeById(@PathVariable("id") Long id) {
      return employeeservice.findEmployeeById(id);
     }
-//    @GetMapping("/find/{id}")
-//    public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long id) {
-//        Employee employee = employeeservice.findEmployeeById(id);
-//        return new ResponseEntity<>(HttpStatus.OK);
-//    }
-
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
     public Employee addEmployee(@RequestBody Employee employee) {
          return employeeservice.addEmployee(employee);
     }
-//
-//    @PutMapping("/update/{id}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public ResponseEntity<Employee> updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee) {
-//        Employee updateEmployee = employeeservice.findEmployeeById(id);
-//        updateEmployee.setName(employee.getName());
-//        updateEmployee.setAge(employee.getAge());
-//        updateEmployee.setSurname(employee.getSurname());
-//        updateEmployee.setEmployeeNumber(employee.getEmployeeNumber());
-//        updateEmployee.setSalary(employee.getSalary());
-//        employeeservice.addEmployee(updateEmployee);
-//
-//    }
+
 @PutMapping("/update/{id}")
 @ResponseStatus(HttpStatus.OK)
 public ResponseEntity<Employee> updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee) {
